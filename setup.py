@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-from distutils.core import setup
+from setuptools import setup, find_packages
 
 package_name='baldor'
 setup(
@@ -10,9 +10,11 @@ setup(
         author='Francisco Suarez-Ruiz',
         author_email='fsuarez6@gmail.com',
         url='http://wiki.ros.org/baldor',
-        packages=['src/' + package_name],
+        packages=find_packages(where="src"),
+        package_dir={"": "src"},
         data_files=[
             ('share/' + package_name, ['package.xml']),
             ('share/ament_index/resource_index/packages', ['resource/' + package_name]),
             ],
+        install_requires=["setuptools"],
         )
